@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import Questionnaire from "./pages/Questionnaire";
+import Results from "./pages/Results";
+import Resources from "./pages/Resources";
+import Index from "./pages/Index";
+import ChatbotIcon from "./components/ChatbotIcon"; // Import the ChatbotIcon component
+
+// If you have a Chatbot component, import it here
+// import Chatbot from "./components/Chatbot"; 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+      <div className="content">
+        {/* Define the routes for different pages */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/questionnaire" element={<Questionnaire />} />
+          <Route path="/results" element={<Results />} />
+          <Route path="/resources" element={<Resources />} />
+          <Route path="/index" element={<Index />} />
+          {/* Route for Chatbot */}
+          <Route path="/chatbot" element={<div>Chatbot Page</div>} /> 
+          {/* Replace <div> with your actual Chatbot component when available */}
+          {/* Example: <Route path="/chatbot" element={<Chatbot />} /> */}
+        </Routes>
+      </div>
+
+      {/* Chatbot Icon appears on every page */}
+      <ChatbotIcon />
+    </Router>
   );
 }
 
