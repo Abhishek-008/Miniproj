@@ -15,8 +15,8 @@ const Navbar = () => {
           <Link to="/" className="text-black hover:text-[#FECF4C] transition-colors duration-300">
             Home
           </Link>
-          <Link to="/questionnaire" className="text-black hover:text-[#FECF4C] transition-colors duration-300">
-            Questionnaire
+          <Link to="/index" className="text-black hover:text-[#FECF4C] transition-colors duration-300">
+            Assessment
           </Link>
           <Link to="/resources" className="text-black hover:text-[#FECF4C] transition-colors duration-300">
             Resources
@@ -24,7 +24,7 @@ const Navbar = () => {
           <Link to="/moodtunes" className="text-black hover:text-[#FECF4C] transition-colors duration-300">
             MoodTunes
           </Link>
-          <Link to="/about-us" className="text-black hover:text-[#FECF4C] transition-colors duration-300">
+          <Link to="/aboutus" className="text-black hover:text-[#FECF4C] transition-colors duration-300">
             About Us
           </Link>
         </div>

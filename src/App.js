@@ -2,14 +2,12 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import Questionnaire from "./pages/Questionnaire";
 import Results from "./pages/Results";
 import Resources from "./pages/Resources";
 import Index from "./pages/Index";
+import Aboutus from "./pages/Aboutus";
+import Assessment from "./pages/Assessment";
 import ChatbotIcon from "./components/ChatbotIcon"; // Import the ChatbotIcon component
-
-// If you have a Chatbot component, import it here
-// import Chatbot from "./components/Chatbot"; 
 
 function App() {
   return (
@@ -19,14 +17,13 @@ function App() {
         {/* Define the routes for different pages */}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/questionnaire" element={<Questionnaire />} />
+          <Route path="/index" element={<Index />} />
           <Route path="/results" element={<Results />} />
           <Route path="/resources" element={<Resources />} />
-          <Route path="/index" element={<Index />} />
-          {/* Route for Chatbot */}
-          <Route path="/chatbot" element={<div>Chatbot Page</div>} /> 
-          {/* Replace <div> with your actual Chatbot component when available */}
-          {/* Example: <Route path="/chatbot" element={<Chatbot />} /> */}
+          <Route path="/aboutus" element={<Aboutus />} />
+          {/* Dynamic route for Assessment with disorder parameter */}
+          <Route path="/assessment/:disorder" element={<Assessment />} />
+          <Route path="/result" element={<Results />} />
         </Routes>
       </div>
 
