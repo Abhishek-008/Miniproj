@@ -23,6 +23,18 @@ const ResultPage = () => {
       "Seek professional counseling",
       "Consider journaling or creative outlets",
     ],
+    bipolar: [
+      "Mood stabilizing medication",
+      "Regular therapy sessions (CBT, DBT)",
+      "Maintain a structured routine",
+      "Engage in stress-reducing activities like yoga or mindfulness",
+    ],
+    trauma: [
+      "Trauma-focused therapy (e.g., EMDR, CBT for trauma)",
+      "Mindfulness and grounding exercises",
+      "Join a support group for trauma survivors",
+      "Work with a trained trauma specialist",
+    ],
   };
 
   return (

@@ -31,6 +31,7 @@ const Assessment = () => {
   };
 
   const calculateResult = (score) => {
+    // Result ranges for different disorders
     if (disorder === "anxiety") {
       if (score >= 0 && score <= 4) return "Minimal Anxiety";
       else if (score >= 5 && score <= 9) return "Mild Anxiety";
@@ -42,6 +43,15 @@ const Assessment = () => {
       else if (score >= 10 && score <= 14) return "Moderate Depression";
       else if (score >= 15 && score <= 19) return "Moderately Severe Depression";
       else if (score >= 20 && score <= 27) return "Severe Depression";
+    } else if (disorder === "trauma") {
+      if (score === 0 || score === 1) return "No or minimal PTSD symptoms";
+      else if (score === 2 || score === 3) return "Mild PTSD symptoms";
+      else if (score === 4 || score === 5) return "Severe PTSD symptoms";
+    } else if (disorder === "bipolar") {
+      if (score === 0) return "No signs of Bipolar disorder";
+      else if (score >= 1 && score <= 3) return "Mild Bipolar disorder";
+      else if (score >= 4 && score <= 6) return "Moderate Bipolar disorder";
+      else if (score >= 7) return "Severe Bipolar disorder";
     }
     return "";
   };
@@ -49,6 +59,8 @@ const Assessment = () => {
   const progressPercentage = Math.round(
     ((currentQuestionIndex + 1) / questions.length) * 100
   );
+
+  const isYesNoQuestion = disorder === "trauma" || disorder === "bipolar";
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#FDF6F0]">
@@ -78,30 +90,48 @@ const Assessment = () => {
               </p>
 
               {/* Answer Options */}
-              <div className="grid grid-cols-4 gap-4">
-                {[0, 1, 2, 3].map((option) => (
-                  <button
-                    key={option}
-                    className={`w-full py-3 rounded-lg font-semibold text-lg transition-colors duration-200
-                      ${
-                        answers[currentQuestionIndex] === option
-                          ? "bg-[#FECF4C] text-black"
-                          : "bg-gray-200 text-gray-800 hover:bg-gray-300"
-                      }`}
-                    onClick={() => handleAnswerChange(option)}
-                  >
-                    {option}
-                  </button>
-                ))}
+              <div className="grid grid-cols-2 gap-4">
+                {isYesNoQuestion ? (
+                  <>
+                    {/* Yes/No Options for Trauma and Bipolar */}
+                    <button
+                      className={`w-full py-3 rounded-lg font-semibold text-lg transition-colors duration-200
+                        ${answers[currentQuestionIndex] === 1 ? "bg-[#FECF4C] text-black" : "bg-gray-200 text-gray-800 hover:bg-gray-300"}`}
+                      onClick={() => handleAnswerChange(1)}
+                    >
+                      Yes
+                    </button>
+                    <button
+                      className={`w-full py-3 rounded-lg font-semibold text-lg transition-colors duration-200
+                        ${answers[currentQuestionIndex] === 0 ? "bg-[#FECF4C] text-black" : "bg-gray-200 text-gray-800 hover:bg-gray-300"}`}
+                      onClick={() => handleAnswerChange(0)}
+                    >
+                      No
+                    </button>
+                  </>
+                ) : (
+                  /* For Disorders other than Trauma and Bipolar (4 options) */
+                  [0, 1, 2, 3].map((option) => (
+                    <button
+                      key={option}
+                      className={`w-full py-3 rounded-lg font-semibold text-lg transition-colors duration-200
+                        ${answers[currentQuestionIndex] === option ? "bg-[#FECF4C] text-black" : "bg-gray-200 text-gray-800 hover:bg-gray-300"}`}
+                      onClick={() => handleAnswerChange(option)}
+                    >
+                      {option}
+                    </button>
+                  ))
+                )}
               </div>
 
-              {/* Labels Below the Options */}
-              <div className="mt-4 grid grid-cols-4 text-center text-gray-600 text-sm">
-                <div>Not at all</div>
-                <div>Several days</div>
-                <div>More than half the days</div>
-                <div>Nearly every day</div>
-              </div>
+              {!isYesNoQuestion && (
+                <div className="mt-4 grid grid-cols-4 text-center text-gray-600 text-sm">
+                  <div>Not at all</div>
+                  <div>Several days</div>
+                  <div>More than half the days</div>
+                  <div>Nearly every day</div>
+                </div>
+              )}
             </div>
 
             {/* Next Button */}

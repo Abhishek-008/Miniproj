@@ -21,6 +21,11 @@ const questionBank = {
     { text: "Feeling afraid, as if something awful might happen?" },
   ],
   trauma: [
+    { text: "Had nightmares about the event(s) or thought about the event(s) when you did not want to?" },
+    { text: "Tried hard not to think about the event(s) or went out of your way to avoid situations that reminded you of the event(s)?" },
+    { text: "Been constantly on guard, watchful, or easily startled?" },
+    { text: "Felt numb or detached from people, activities, or your surroundings?" },
+    { text: "Felt guilty or unable to stop blaming yourself or others for the event(s) or any problems the events may have caused?" },
     { text: "How often have you experienced flashbacks or distressing memories?" },
     { text: "Do you often feel jumpy or easily startled?" },
     { text: "Do you find it difficult to focus on tasks?" },
@@ -28,11 +33,13 @@ const questionBank = {
     { text: "Do you experience stress when thinking about past events?" },
   ],
   bipolar: [
-    { text: "Do you experience extreme mood swings?" },
-    { text: "Do you sometimes have bursts of energy, followed by periods of exhaustion?" },
-    { text: "Do you have trouble concentrating during mood shifts?" },
-    { text: "How often do you struggle with insomnia or too much sleep?" },
-    { text: "How often do you feel stress or anxiety during mood shifts?" },
+    { text: "You felt much more self-confident than usual?" },
+    { text: "You got much less sleep than usual and found you didn’t really miss it?" },
+    { text: "You were much more talkative or spoke faster than usual?" },
+    { text: "Thoughts raced through your head, or you couldn’t slow your mind down?" },
+    { text: "You had much more energy than usual?" },
+    { text: "You were much more active or did many more things than usual?" },
+    { text: "You did things that were unusual for you or that other people might have thought were excessive, foolish, or risky?" },
   ],
 };
 
